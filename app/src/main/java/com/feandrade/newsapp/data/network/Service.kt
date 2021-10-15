@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface Service {
-    @GET("/top-headlines")
+    @GET("v2/top-headlines")
     suspend fun getBreakingNews(
         @Query("country") country: String,
         @Query("page") page: Int,

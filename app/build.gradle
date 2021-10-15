@@ -18,7 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "API_KEY", "\"4242d419d344499ca6550f871d2d430e\""
-        buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+        buildConfigField "String", "BASE_URL", "\"https://newsapi.org/\""
     }
 
     buildTypes {
@@ -75,8 +75,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
     // testImplementation for pure JVM unit tests
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3"
