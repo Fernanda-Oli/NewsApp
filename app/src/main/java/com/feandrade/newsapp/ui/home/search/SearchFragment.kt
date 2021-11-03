@@ -1,14 +1,11 @@
-package com.feandrade.newsapp.ui.search
+package com.feandrade.newsapp.ui.home.search
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.LinearLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,14 +16,13 @@ import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.data.network.ApiService
 import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
 import com.feandrade.newsapp.databinding.FragmentSearchBinding
-import com.feandrade.newsapp.ui.adapter.NewsAdapter
-import com.feandrade.newsapp.ui.home.activity.HomeActivity
+import com.feandrade.newsapp.ui.home.adapter.NewsAdapter
+import com.feandrade.newsapp.ui.home.homeactivity.HomeActivity
 import com.feandrade.newsapp.ui.home.viewmodel.SearchViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding

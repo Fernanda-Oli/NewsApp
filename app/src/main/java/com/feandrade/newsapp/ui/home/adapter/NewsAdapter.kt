@@ -1,14 +1,11 @@
-package com.feandrade.newsapp.ui.adapter
+package com.feandrade.newsapp.ui.home.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.databinding.ItemNewsBinding
-import kotlinx.android.synthetic.main.item_news.view.*
 
 class NewsAdapter(
     private val listNews: List<Article>,

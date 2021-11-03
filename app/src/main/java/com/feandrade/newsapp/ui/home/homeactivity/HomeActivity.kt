@@ -1,8 +1,7 @@
-package com.feandrade.newsapp.ui.home.activity
+package com.feandrade.newsapp.ui.home.homeactivity
 
 import android.content.Context
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController

@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.ui.article
+package com.feandrade.newsapp.ui.home.article
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
-import android.widget.Adapter
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.database.DBRepositoryImpl
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.databinding.FragmentArticleBinding
-import com.feandrade.newsapp.ui.adapter.NewsAdapter
-import com.feandrade.newsapp.ui.article.viewmodel.ArticleViewModel
+import com.feandrade.newsapp.ui.home.article.viewmodel.ArticleViewModel
 
 class ArticleFragment : Fragment() {
     private lateinit var viewModel: ArticleViewModel

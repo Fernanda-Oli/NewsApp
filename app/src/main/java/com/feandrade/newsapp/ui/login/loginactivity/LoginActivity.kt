@@ -2,6 +2,7 @@ package com.feandrade.newsapp.ui.login.loginactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.feandrade.newsapp.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

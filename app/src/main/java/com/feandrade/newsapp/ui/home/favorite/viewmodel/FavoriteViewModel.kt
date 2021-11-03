@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.ui.favorite.viewmodel
+package com.feandrade.newsapp.ui.home.favorite.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

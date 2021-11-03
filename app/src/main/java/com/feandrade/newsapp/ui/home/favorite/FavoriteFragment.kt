@@ -1,7 +1,6 @@
-package com.feandrade.newsapp.ui.favorite
+package com.feandrade.newsapp.ui.home.favorite
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,8 @@ import com.feandrade.newsapp.data.database.DBRepositoryImpl
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.databinding.FragmentFavoriteBinding
-import com.feandrade.newsapp.ui.adapter.NewsAdapter
-import com.feandrade.newsapp.ui.favorite.viewmodel.FavoriteViewModel
+import com.feandrade.newsapp.ui.home.adapter.NewsAdapter
+import com.feandrade.newsapp.ui.home.favorite.viewmodel.FavoriteViewModel
 
 class FavoriteFragment : Fragment() {
     private lateinit var viewModel: FavoriteViewModel

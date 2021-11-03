@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.ui.home.fragment
+package com.feandrade.newsapp.ui.home.homefragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.data.network.ApiService
 import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
 import com.feandrade.newsapp.databinding.FragmentHomeBinding
-import com.feandrade.newsapp.ui.adapter.NewsAdapter
+import com.feandrade.newsapp.ui.home.adapter.NewsAdapter
 import com.feandrade.newsapp.ui.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.Dispatchers
 
