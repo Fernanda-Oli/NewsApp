@@ -7,13 +7,17 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.feandrade.newsapp.data.database.dao.NewsDAO
+import com.feandrade.newsapp.data.database.dao.UserDAO
 import com.feandrade.newsapp.data.model.Article
+import com.feandrade.newsapp.data.model.User
 
-@Database(entities = [Article::class], version = 1, exportSchema = false)
+@Database(entities = [Article::class, User::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class NewsDB : RoomDatabase() {
 
     abstract fun newsDAO(): NewsDAO
+    abstract fun userDAO(): UserDAO
 
     companion object {
         @Volatile

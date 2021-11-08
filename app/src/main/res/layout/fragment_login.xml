@@ -56,7 +56,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/emailPasswordError"
         android:textColor="@android:color/holo_red_dark"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/inputLayoutPassword"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />

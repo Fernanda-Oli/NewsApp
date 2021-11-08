@@ -3,7 +3,7 @@ package com.feandrade.newsapp.ui.home.article.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.feandrade.newsapp.data.database.DBRepository
+import com.feandrade.newsapp.data.database.repository.DBRepository
 import com.feandrade.newsapp.data.model.Article
 import kotlinx.coroutines.launch
 

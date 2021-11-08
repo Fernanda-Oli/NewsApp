@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.data.database
+package com.feandrade.newsapp.data.database.repository
 
 import androidx.lifecycle.LiveData
 import com.feandrade.newsapp.data.model.Article

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import android.widget.Toast
-import com.feandrade.newsapp.data.database.DBRepositoryImpl
+import com.feandrade.newsapp.data.database.repository.DBRepositoryImpl
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.databinding.FragmentArticleBinding

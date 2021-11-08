@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.data.database
+package com.feandrade.newsapp.data.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

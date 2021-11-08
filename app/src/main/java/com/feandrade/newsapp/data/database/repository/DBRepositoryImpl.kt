@@ -1,6 +1,7 @@
-package com.feandrade.newsapp.data.database
+package com.feandrade.newsapp.data.database.repository
 
 import androidx.lifecycle.LiveData
+import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.model.Article
 
 class DBRepositoryImpl(private val newsDB: NewsDB) : DBRepository {

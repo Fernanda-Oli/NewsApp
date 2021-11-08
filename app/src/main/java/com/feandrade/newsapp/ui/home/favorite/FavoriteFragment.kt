@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.feandrade.newsapp.R
-import com.feandrade.newsapp.data.database.DBRepositoryImpl
+import com.feandrade.newsapp.data.database.repository.DBRepositoryImpl
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.databinding.FragmentFavoriteBinding
