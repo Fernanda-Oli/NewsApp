@@ -18,4 +18,6 @@
     <string name="confirm_your_password">Confirm your password</string>
     <string name="invalid_user_name">Invalid E-mail</string>
     <string name="empty_password">Required Field</string>
+    <string name="mandatory_field">Mandatory Field</string>
+    <string name="invalid_password">Invalid Password</string>
 </resources>

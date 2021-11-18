@@ -46,7 +46,6 @@ class HomeFragment : Fragment() {
         binding.swipeLayout.setOnRefreshListener {
             getNews()
         }
-
     }
 
     private fun observeVmEvents() {
@@ -64,7 +63,6 @@ class HomeFragment : Fragment() {
                 }
                 Status.LOADING -> {
                     binding.swipeLayout.isRefreshing = true
-
                     //binding.progressBar.visibility = if(it.loading == true) View.VISIBLE else View.GONE
                 }
             }

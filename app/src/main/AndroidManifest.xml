@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsApp" >
         <activity
-            android:name=".ui.login.loginactivity.LoginActivity"
+            android:name=".ui.home.homeactivity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.homeactivity.HomeActivity"
+            android:name=".ui.login.loginactivity.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

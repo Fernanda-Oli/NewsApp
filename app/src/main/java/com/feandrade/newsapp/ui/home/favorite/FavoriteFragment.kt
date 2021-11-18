@@ -43,8 +43,7 @@ class FavoriteFragment : Fragment() {
 
     private fun setAdapter(list: List<Article>) {
         newsAdapter = NewsAdapter(list) { article ->
-            findNavController().navigate(
-                R.id.action_favoriteFragment_to_articleFragment,
+            findNavController().navigate(R.id.action_favoriteFragment_to_articleFragment,
                 Bundle().apply {
                     putSerializable("article", article)
                 })
