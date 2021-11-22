@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.database.repository.UserRepositoryImpl
-import com.feandrade.newsapp.data.model.User
 import com.feandrade.newsapp.databinding.FragmentLoginBinding
 import com.feandrade.newsapp.ui.home.homeactivity.HomeActivity
 import com.feandrade.newsapp.ui.login.loginfragment.viewmodel.LoginViewModel
@@ -27,28 +26,23 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
-        // Inflate the layout for this fragment
-    }
+ }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val db = UserRepositoryImpl(NewsDB(requireContext()))
         viewModel = LoginViewModel.LoginViewModelProvider(db).create(LoginViewModel::class.java)
 
 //        viewModel.insertUser(User("fer@a.com", "fer", "123", ""))
-
         binding.buttonLogin.setOnClickListener {
             login(
                 binding.emailTextEDT.text.toString(),
                 binding.passeordEDT.text.toString()
-            )
-        }
+            )}
 
         binding.textCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_userNameFragment2)
         }
-
         observeVmEvents()
     }
 
@@ -63,12 +57,9 @@ class LoginFragment : Fragment() {
     }
 
     private fun observeVmEvents() {
-        //Questionar uso do _loading
-
         viewModel.loginFieldErrorResId.observe(viewLifecycleOwner) {
             binding.inputLayoutUserName.setError(requireContext(), it)
         }
-
         viewModel.passwordErrorResId.observe(viewLifecycleOwner) {
             binding.inputLayoutPassword.setError(requireContext(), it)
         }

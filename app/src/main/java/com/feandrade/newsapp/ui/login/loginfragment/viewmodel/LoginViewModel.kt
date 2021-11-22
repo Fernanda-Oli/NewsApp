@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.database.repository.UserRepository
 import com.feandrade.newsapp.data.model.User
-import kotlinx.coroutines.launch
 
 class LoginViewModel(val db: UserRepository): ViewModel() {
     private val _userNameFieldErrorResId = MutableLiveData<Int?>()
@@ -13,9 +12,6 @@ class LoginViewModel(val db: UserRepository): ViewModel() {
 
     private val _passwordFieldErrorResId = MutableLiveData<Int?>()
     val passwordErrorResId : LiveData<Int?> = _passwordFieldErrorResId
-
-    private val _loading = MutableLiveData<Boolean>()
-    val loading : LiveData<Boolean> = _loading
 
     private var isValid: Boolean = false
 
@@ -28,9 +24,7 @@ class LoginViewModel(val db: UserRepository): ViewModel() {
 
         return if(isValid) db.getUser(email, password) else null
     }
-
-    //Duvida.
-    fun insertUser(user: User) = viewModelScope.launch { db.insert(user) }
+//    fun insertUser(user: User) = viewModelScope.launch { db.insert(user) }
 
     private fun getErrorStringResIdEmptyUserName(value: String): Int? =
         if (!Patterns.EMAIL_ADDRESS.matcher(value).matches()){
@@ -44,7 +38,6 @@ class LoginViewModel(val db: UserRepository): ViewModel() {
             R.string.empty_password
         } else null
 
-    //Duvida
     class LoginViewModelProvider(
         private val repository: UserRepository
     ): ViewModelProvider.Factory{
@@ -54,6 +47,5 @@ class LoginViewModel(val db: UserRepository): ViewModel() {
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }
-
     }
 }

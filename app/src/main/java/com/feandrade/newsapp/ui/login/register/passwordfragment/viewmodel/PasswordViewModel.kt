@@ -3,9 +3,8 @@ package com.feandrade.newsapp.ui.login.register.passwordfragment.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.feandrade.newsapp.R
-import com.feandrade.newsapp.data.database.repository.UserRepository
-import com.feandrade.newsapp.data.model.User
 
 class PasswordViewModel : ViewModel() {
 
@@ -25,6 +24,10 @@ class PasswordViewModel : ViewModel() {
         _passwordFieldErrorResID.value = passwordFieldErrorResId(password)
         _confirmPasswordFieldErrorResId.value =
             confirmPasswordFieldErrorResId(password, confirmPassword)
+
+        if (isValid) {
+            _validate_password.value = password
+        }
     }
 
     private fun passwordFieldErrorResId(password: String): Int? =
@@ -35,12 +38,25 @@ class PasswordViewModel : ViewModel() {
 
 
     private fun confirmPasswordFieldErrorResId(password: String, confirmPassword: String): Int? =
-        if (password.isEmpty() || password.isBlank()) {
-            isValid = false
-            R.string.mandatory_field
-        } else if (password != confirmPassword){
-            isValid = false
-            R.string.invalid_password
-        }else null
+        when {
+            confirmPassword.isEmpty() || confirmPassword.isBlank() -> {
+                isValid = false
+                R.string.mandatory_field
+            }
+            password != confirmPassword -> {
+                isValid = false
+                R.string.invalid_password
+            }
+            else -> null
+        }
 
+    class PasswordVMProviderFactory(
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(PasswordViewModel::class.java)) {
+                return PasswordViewModel() as T
+            }
+            throw IllegalArgumentException("Unknown ViewModel class")
+        }
+    }
 }

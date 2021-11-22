@@ -12,12 +12,20 @@
     <string name="login">Login</string>
     <string name="create_acount"><u>Create Acount</u></string>
     <string name="cancel">Cancel</string>
+    <string name="previous">Previous</string>
     <string name="confirm_e_mail">Confirm e-mail</string>
     <string name="enter_e_mail">Enter e-mail</string>
     <string name="create_user_name">Create user name</string>
     <string name="confirm_your_password">Confirm your password</string>
-    <string name="invalid_user_name">Invalid E-mail</string>
+    <string name="invalid_user_name">Invalid user name</string>
     <string name="empty_password">Required Field</string>
     <string name="mandatory_field">Mandatory Field</string>
     <string name="invalid_password">Invalid Password</string>
+    <string name="invalid_email">Invalid e-mail</string>
+    <string name="email_match">E-mail didn\'t match</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="next">Next</string>
+    <string name="login_in_newsapp">Login in NewsApp</string>
+    <string name="welcome_to_news_app">Welcome to News App</string>
 </resources>
