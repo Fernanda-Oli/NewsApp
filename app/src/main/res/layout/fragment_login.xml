@@ -62,11 +62,11 @@
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
 
     <CheckBox
-        android:id="@+id/checkboxPassword"
+        android:id="@+id/checkbox_save_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/save_password"
+        android:text="@string/checkbox_save_login"
         app:layout_constraintEnd_toEndOf="@+id/inputLayoutPassword"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutPassword"
         app:layout_constraintTop_toBottomOf="@+id/errorText" />
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="@+id/inputLayoutPassword"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutPassword"
-        app:layout_constraintTop_toBottomOf="@+id/checkboxPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_save_login" />
 
     <TextView
         android:id="@+id/textCreateAccount"

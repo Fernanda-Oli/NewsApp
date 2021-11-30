@@ -54,7 +54,7 @@ class PhotoFragment() : Fragment() {
             if (it) {
                 showWelcomeMessage()
             } else {
-                Toast.makeText(requireContext(), "_______", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Falha ao salvar", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -67,7 +67,10 @@ class PhotoFragment() : Fragment() {
     }
 
     private fun saveUser() {
-        if (imageUri != null) user.photo = imageUri!!.path
+//        if (imageUri != null) user.photo = imageUri!!.path
+        imageUri?.let {
+            user.photo = it.path
+        }
         viewModel.saveUser(user)
     }
 

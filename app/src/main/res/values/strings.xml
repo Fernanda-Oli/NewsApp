@@ -8,7 +8,7 @@
     <string name="enter_user_name">Enter user name</string>
     <string name="enter_password">Enter Password</string>
     <string name="emailPasswordError">E-mail or password didn\'t work</string>
-    <string name="save_password">Save Password</string>
+    <string name="checkbox_save_login">Remember me</string>
     <string name="login">Login</string>
     <string name="create_acount"><u>Create Acount</u></string>
     <string name="cancel">Cancel</string>

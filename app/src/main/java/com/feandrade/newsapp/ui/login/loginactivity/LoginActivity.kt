@@ -2,6 +2,7 @@ package com.feandrade.newsapp.ui.login.loginactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.NavController
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.databinding.ActivityLoginBinding
 
