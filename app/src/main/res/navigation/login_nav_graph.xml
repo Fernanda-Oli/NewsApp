@@ -38,7 +38,19 @@
         android:label="fragment_photo"
         tools:layout="@layout/fragment_photo" >
         <action
-            android:id="@+id/action_photoFragment_to_loginFragment3"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_photoFragment_to_welcomeFragment2"
+            app:destination="@id/welcomeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment2"
+        android:name="com.feandrade.newsapp.util.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout = "@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment2_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 </navigation>

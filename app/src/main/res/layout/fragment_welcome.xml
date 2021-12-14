@@ -23,10 +23,8 @@
         android:layout_margin="24dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -46,13 +44,12 @@
         android:id="@+id/btnLoginNews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:background="@drawable/button_fill_bg"
         android:text="@string/login_in_newsapp"
-        android:background="@drawable/button_white_shape"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

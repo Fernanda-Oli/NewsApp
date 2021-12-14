@@ -11,13 +11,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.database.NewsDB
-import com.feandrade.newsapp.data.database.repository.UserRepository
 import com.feandrade.newsapp.data.database.repository.UserRepositoryImpl
 import com.feandrade.newsapp.data.model.User
 import com.feandrade.newsapp.databinding.FragmentPhotoBinding
 import com.feandrade.newsapp.ui.login.register.photofragment.viewmodel.PhotoViewModel
 import com.feandrade.newsapp.util.MessageDialog
-import com.feandrade.newsapp.util.WelcomeDialog
 
 class PhotoFragment() : Fragment() {
     private lateinit var binding: FragmentPhotoBinding
@@ -60,10 +58,8 @@ class PhotoFragment() : Fragment() {
     }
 
     private fun showWelcomeMessage() {
-        val dialog = WelcomeDialog {
-            findNavController().navigate(R.id.action_photoFragment_to_loginFragment3)
-        }
-        dialog.show(parentFragmentManager, "WELCOME")
+     findNavController().navigate(
+         R.id.action_photoFragment_to_welcomeFragment2)
     }
 
     private fun saveUser() {

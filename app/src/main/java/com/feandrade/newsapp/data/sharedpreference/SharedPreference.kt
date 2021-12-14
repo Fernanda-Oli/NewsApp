@@ -18,7 +18,6 @@ class SharedPreference(context: Context) : DataStorage {
         editor.putString(key, email)
         editor.apply()
     }
-
     override fun deleteData(key: String) {
         sharedPref.edit().remove(key).apply()
     }
