@@ -43,7 +43,8 @@ class LoginFragment : Fragment() {
         }
 
         binding.buttonLogin.setOnClickListener {
-            login(binding.emailTextEDT.text.toString(), binding.passeordEDT.text.toString())
+//            login(binding.emailTextEDT.text.toString(), binding.passeordEDT.text.toString())
+            findNavController().navigate(R.id.action_loginFragment_to_subjectsInterestFragment)
         }
 
         binding.textCreateAccount.setOnClickListener {

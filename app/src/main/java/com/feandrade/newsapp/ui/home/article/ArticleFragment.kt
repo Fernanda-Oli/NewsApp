@@ -40,7 +40,7 @@ class ArticleFragment : Fragment() {
         }
         binding.fab.setOnClickListener {
             viewModel.saveArticle(article)
-            Toast.makeText(requireContext(), "Artigo ok!", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(requireContext(), "Artigo ok!", Toast.LENGTH_SHORT).show()
         }
     }
 }

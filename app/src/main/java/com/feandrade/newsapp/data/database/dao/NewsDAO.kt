@@ -13,6 +13,9 @@ interface NewsDAO {
     @Query("SELECT * FROM articles")
     fun getAllArticles(): LiveData<List<Article>>
 
+    @Query("SELECT * FROM articles WHERE userId = :userId")
+    fun getArticlesByUserId(userId: Long): LiveData<List<Article>>
+
     @Delete
     suspend fun deleteArticle(article: Article)
 }

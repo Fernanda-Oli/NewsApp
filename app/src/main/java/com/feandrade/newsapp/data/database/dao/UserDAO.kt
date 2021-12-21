@@ -4,11 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.feandrade.newsapp.data.model.User
+import retrofit2.http.GET
 
 @Dao
 interface UserDAO {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: User)
 
     @Query("SELECT * FROM user WHERE email = :email AND password = :password")

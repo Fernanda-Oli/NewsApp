@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_loginFragment_to_userNameFragment2"
             app:destination="@id/userNameFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_subjectsInterestFragment"
+            app:destination="@id/subjectsInterestFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -53,4 +56,9 @@
             app:popUpToInclusive="true"
             />
     </fragment>
+    <fragment
+        android:id="@+id/subjectsInterestFragment"
+        android:name="com.feandrade.newsapp.ui.home.config.subjectinterest.SubjectsInterestFragment"
+        android:label="fragment_subjects_interest"
+        tools:layout="@layout/fragment_subjects_interest" />
 </navigation>

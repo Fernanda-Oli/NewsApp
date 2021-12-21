@@ -28,13 +28,11 @@ abstract class NewsDB : RoomDatabase() {
                 //implement migration
             }
         }
-
         operator fun invoke(context: Context) = instance ?: synchronized(lock) {
             instance ?: createDB(context).also {
                 instance = it
             }
         }
-
         private fun createDB(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             NewsDB::class.java,

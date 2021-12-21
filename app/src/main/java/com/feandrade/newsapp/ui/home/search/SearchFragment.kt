@@ -18,7 +18,7 @@ import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
 import com.feandrade.newsapp.databinding.FragmentSearchBinding
 import com.feandrade.newsapp.ui.home.adapter.NewsAdapter
 import com.feandrade.newsapp.ui.home.homeactivity.HomeActivity
-import com.feandrade.newsapp.ui.home.viewmodel.SearchViewModel
+import com.feandrade.newsapp.ui.home.search.viewmodel.SearchViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay

@@ -16,7 +16,7 @@ import com.feandrade.newsapp.data.network.ApiService
 import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
 import com.feandrade.newsapp.databinding.FragmentHomeBinding
 import com.feandrade.newsapp.ui.home.adapter.NewsAdapter
-import com.feandrade.newsapp.ui.home.viewmodel.HomeViewModel
+import com.feandrade.newsapp.ui.home.homefragment.viewmodel.HomeViewModel
 import kotlinx.coroutines.Dispatchers
 
 class HomeFragment : Fragment() {
