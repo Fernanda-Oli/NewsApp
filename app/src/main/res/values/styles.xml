@@ -13,6 +13,23 @@
         <item name="android:layout_marginEnd">36dp</item>
     </style>
 
+    <style name="Widget.MaterialComponents.Chip.News"
+        parent="Base.Widget.MaterialComponents.Chip">
+        <item name="android:checkable">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="chipStartPadding">36dp</item>
+        <item name="chipEndPadding">36dp</item>
+        <item name="chipStrokeWidth">2.2dp</item>
+        <item name="chipStrokeColor">@color/black</item>
+        <item name="chipCornerRadius">6dp</item>
+        <item name="chipBackgroundColor">@color/azul_bebe_chip</item>
+        <item name="chipIconVisible">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+    </style>
+
     <style name="FormEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

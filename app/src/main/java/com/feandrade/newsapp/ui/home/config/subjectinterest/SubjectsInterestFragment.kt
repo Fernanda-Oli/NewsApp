@@ -13,6 +13,7 @@ import com.feandrade.newsapp.databinding.FragmentSubjectsInterestBinding
 import com.feandrade.newsapp.ui.home.config.subjectinterest.viewmodel.SubjectsInterestViewModel
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
+import kotlinx.android.synthetic.main.fragment_subjects_interest.*
 import kotlinx.coroutines.Dispatchers
 
 class SubjectsInterestFragment : Fragment() {
@@ -33,14 +34,16 @@ class SubjectsInterestFragment : Fragment() {
             .create(SubjectsInterestViewModel::class.java)
 
         populateChipsView()
-    }
 
+        binding.btnNext.setOnClickListener {
+            val checkedChipIds = chipGroup.checkedChipIds
+
+        }
+    }
     private fun populateChipsView(){
         val chipList = viewModel.getSubjects()
         for (item in chipList) {
-            var chip = Chip(requireContext())
-            val drawable = ChipDrawable.createFromAttributes(requireContext(), null , 0, R.style.Widget_MaterialComponents_Chip_Filter)
-            chip.setChipDrawable(drawable)
+            var chip = LayoutInflater.from(context).inflate(R.layout.chip_choice,null, false) as Chip
             chip.text = item
             binding.chipGroup.addView(chip)
         }

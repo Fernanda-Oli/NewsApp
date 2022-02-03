@@ -11,7 +11,7 @@ class SubjectsInterestViewModel (
 ) : ViewModel() {
 
     fun getSubjects() : ArrayList<String>{
-        return arrayListOf("business", "entertainment", "general", "health", "science", "sports", "technology")
+        return arrayListOf("Business", "Health", "Entertainment", "General", "Sports", "Technology", "Science")
     }
 
     class SubjectsInterestViewModelFactory(
