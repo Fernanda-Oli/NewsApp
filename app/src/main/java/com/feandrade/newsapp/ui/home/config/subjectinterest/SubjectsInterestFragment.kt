@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.network.ApiService
 import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
@@ -37,8 +38,9 @@ class SubjectsInterestFragment : Fragment() {
 
         binding.btnNext.setOnClickListener {
             val checkedChipIds = chipGroup.checkedChipIds
-
+            viewModel.getSubjects()
         }
+
     }
     private fun populateChipsView(){
         val chipList = viewModel.getSubjects()
@@ -46,6 +48,10 @@ class SubjectsInterestFragment : Fragment() {
             var chip = LayoutInflater.from(context).inflate(R.layout.chip_choice,null, false) as Chip
             chip.text = item
             binding.chipGroup.addView(chip)
+
+            chip.setOnClickListener {
+                binding.btnNext.isEnabled = true
+            }
         }
     }
 }

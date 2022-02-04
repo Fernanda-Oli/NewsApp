@@ -13,6 +13,7 @@
     <color name="azul_piscina">#38b6ff</color>
     <color name="azul_teal">#03989E</color>
     <color name="button">#2D9BF0</color>
+    <color name="button_disable">#7691A6</color>
 </resources>
 
 
