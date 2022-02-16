@@ -14,6 +14,7 @@ import com.feandrade.newsapp.core.Status
 import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.data.network.ApiService
 import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
+import com.feandrade.newsapp.data.sharedpreference.SharedPreference
 import com.feandrade.newsapp.databinding.FragmentHomeBinding
 import com.feandrade.newsapp.ui.home.adapter.NewsAdapter
 import com.feandrade.newsapp.ui.home.homefragment.viewmodel.HomeViewModel
@@ -28,7 +29,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -37,15 +38,20 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val newsRepository = NewsRepositoryImpl(ApiService.service)
-        viewModel = HomeViewModel.HomeViewModelProviderFactory(Dispatchers.IO, newsRepository)
+        viewModel = HomeViewModel.HomeViewModelProviderFactory(Dispatchers.IO, newsRepository, SharedPreference(requireContext()))
             .create(HomeViewModel::class.java)
 
         getNews()
         observeVmEvents()
+        getSubjects()
 
         binding.swipeLayout.setOnRefreshListener {
             getNews()
         }
+    }
+
+    private fun getSubjects() {
+        viewModel.getSubjects()
     }
 
     private fun observeVmEvents() {

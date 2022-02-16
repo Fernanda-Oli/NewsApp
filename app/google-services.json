@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457785784433",
+    "project_id": "news-295c3",
+    "storage_bucket": "news-295c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457785784433:android:6f63c83dadd764badc83d0",
+        "android_client_info": {
+          "package_name": "com.feandrade.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457785784433-76mqhh7lrc3altppdie8275pmqgu5ldt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAJnKZ1kuSXsmeESka_slOK1AJ4iYdt58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457785784433-76mqhh7lrc3altppdie8275pmqgu5ldt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
