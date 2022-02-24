@@ -8,15 +8,33 @@
     android:padding="8dp"
     tools:context=".ui.home.search.SearchFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </com.google.android.material.appbar.AppBarLayout>
+
     <EditText
         android:id="@+id/etSearch"
-        android:layout_width="396dp"
-        android:layout_height="48dp"
-        android:inputType="textCapCharacters|textAutoComplete"
-        app:layout_constraintBottom_toTopOf="@+id/rvSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="4dp"
+        android:paddingRight="8dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:imeOptions="actionDone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearch"

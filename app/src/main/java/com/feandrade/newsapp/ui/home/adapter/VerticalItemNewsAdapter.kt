@@ -25,8 +25,8 @@ class VerticalItemNewsAdapter(
     override fun getItemCount(): Int = articles.count()
 
     class VerticalViewHolder(
-        val itemView: ItemNewsVerticalBinding,
-        val itemClicked : (article: Article)->Unit
+        itemView: ItemNewsVerticalBinding,
+        private val itemClicked : (article: Article)->Unit
     ) : RecyclerView.ViewHolder(itemView.root) {
 
         fun bind(article: Article){
