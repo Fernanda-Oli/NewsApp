@@ -18,7 +18,7 @@
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/dialog_welcome.xml" value="0.25" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_article.xml" value="0.12771739130434784" />
-        <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_favorite.xml" value="0.1921875" />
+        <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_favorite.xml" value="0.1" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_home.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_login.xml" value="0.21" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_password.xml" value="0.22" />
@@ -27,7 +27,10 @@
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_subjects_interest.xml" value="0.25" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_user_name.xml" value="0.33" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
+        <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/header_interest_news.xml" value="0.1" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/item_news.xml" value="0.1921875" />
+        <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/item_news_vertical.xml" value="0.1" />
+        <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/layout/item_slide.xml" value="0.1" />
         <entry key="..\:/Users/feandrade/StudioProjects/NewsApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>

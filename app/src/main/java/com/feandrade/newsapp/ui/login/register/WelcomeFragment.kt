@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.util
+package com.feandrade.newsapp.ui.login.register
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,7 +38,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun nextFrag(){
-        findNavController().navigate(R.id.action_welcomeFragment2_to_loginFragment)
+        findNavController().navigate(R.id.action_welcomeFragment2_to_subjectsInterestFragment)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

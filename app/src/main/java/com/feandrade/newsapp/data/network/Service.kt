@@ -18,5 +18,11 @@ interface Service {
         @Query("page") page: Int,
         @Query("apiKey") apiKey: String
     ): NewsResponse
+
+    @GET("/v2/top-headlines/sources")
+    suspend fun getInterestsNews(
+        @Query ("apiKey") apiKey: String,
+        @Query ("category") category : String
+    ) : NewsResponse
 }
 // v2/everything?q=Arvore&page=1&apiKey=asfdfwgdfgsdgafhg

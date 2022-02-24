@@ -19,7 +19,6 @@ import com.feandrade.newsapp.util.setError
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
-    private var isChecked = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,44 +27,57 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val db = UserRepositoryImpl(NewsDB(requireContext()))
         val cache = SharedPreference(requireContext())
-        viewModel =
-            LoginViewModel.LoginViewModelProvider(db, cache).create(LoginViewModel::class.java)
+        viewModel = LoginViewModel.LoginViewModelProvider(db, cache).create(LoginViewModel::class.java)
 
         viewModel.getUserSavedEmail()
 
-        binding.checkboxSaveLogin.setOnClickListener {
-            if (!binding.checkboxSaveLogin.isChecked) viewModel.deleteUser()
-        }
-
         binding.buttonLogin.setOnClickListener {
-//            login(binding.emailTextEDT.text.toString(), binding.passeordEDT.text.toString())
-            findNavController().navigate(R.id.action_loginFragment_to_subjectsInterestFragment)
+            login(binding.emailTextEDT.text.toString(), binding.passeordEDT.text.toString())
         }
 
         binding.textCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_userNameFragment2)
         }
+
+        binding.checkboxSaveLogin.setOnClickListener {
+            if (!binding.checkboxSaveLogin.isChecked) viewModel.deleteUserEmailLogin()
+        }
+
         observeVmEvents()
     }
 
     private fun login(email: String, password: String) {
         viewModel.login(email, password)?.observe(viewLifecycleOwner) { user ->
             user?.let {
-                saveData(user.email)
-                openHomeActivity(user.email)
+                saveEmailText(user.email)
+                saveUserId(user.id)
+                openHomeActivity()
             } ?: kotlin.run {
                 binding.errorText.visibility = View.VISIBLE
             }
         }
     }
 
+    private fun saveEmailText(email: String) {
+        if (binding.checkboxSaveLogin.isChecked) {
+            viewModel.saveUserEmailLogin(email)
+        } else {
+            viewModel.deleteUserEmailLogin()
+        }
+    }
+
+    private fun saveUserId(id: Long){
+        viewModel.saveUserID(id)
+    }
+
     private fun observeVmEvents() {
-        viewModel.emailSaveInCheckbox.observe(viewLifecycleOwner) {
+
+        viewModel.userEmailSavedLogin.observe(viewLifecycleOwner) {
             binding.emailTextEDT.setText(it)
             if (it.isNotEmpty()) binding.checkboxSaveLogin.isChecked = true
         }
@@ -73,20 +85,14 @@ class LoginFragment : Fragment() {
         viewModel.loginFieldErrorResId.observe(viewLifecycleOwner) {
             binding.inputLayoutUserName.setError(requireContext(), it)
         }
+
         viewModel.passwordErrorResId.observe(viewLifecycleOwner) {
             binding.inputLayoutPassword.setError(requireContext(), it)
         }
+
     }
 
-    private fun saveData(email: String) {
-        if (binding.checkboxSaveLogin.isChecked) {
-           viewModel.saveUser(email)
-        } else {
-            viewModel.deleteUser()
-        }
-    }
-
-    private fun openHomeActivity(email: String) {
+    private fun openHomeActivity() {
         startActivity(Intent(requireContext(), HomeActivity::class.java))
         activity?.finish()
     }

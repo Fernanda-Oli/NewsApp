@@ -1,30 +1,19 @@
 package com.feandrade.newsapp.ui.home.config.subjectinterest
 
 import android.os.Bundle
-import android.view.ContextThemeWrapper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.core.Status
-import com.feandrade.newsapp.data.firebase.FirebaseDataSource
 import com.feandrade.newsapp.data.firebase.FirebaseDataSourceImpl
 import com.feandrade.newsapp.data.model.SubjectsModel
-import com.feandrade.newsapp.data.network.ApiService
-import com.feandrade.newsapp.data.repository.NewsRepositoryImpl
 import com.feandrade.newsapp.data.sharedpreference.SharedPreference
 import com.feandrade.newsapp.databinding.FragmentSubjectsInterestBinding
 import com.feandrade.newsapp.ui.home.config.subjectinterest.viewmodel.SubjectsInterestViewModel
-import com.feandrade.newsapp.ui.home.config.subjectinterest.viewmodel.SubjectsInterestViewModel.SubjectsInterestViewModelFactory
 import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipDrawable
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_subjects_interest.*
 import kotlinx.coroutines.Dispatchers
 
 class SubjectsInterestFragment : Fragment() {
@@ -34,11 +23,12 @@ class SubjectsInterestFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentSubjectsInterestBinding.inflate(inflater,container, false)
+        savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentSubjectsInterestBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -46,6 +36,7 @@ class SubjectsInterestFragment : Fragment() {
         val data = FirebaseDataSourceImpl()
         viewModel = SubjectsInterestViewModel.SubjectsInterestViewModelFactory(Dispatchers.IO, data, cache)
             .create(SubjectsInterestViewModel::class.java)
+
         observeViewModel()
         setButtonClick()
 
@@ -56,7 +47,7 @@ class SubjectsInterestFragment : Fragment() {
     private fun setButtonClick() {
         binding.btnNext.setOnClickListener {
             viewModel.saveInterestsList(interests)
-            findNavController().navigate(R.id.action_subjectChoseFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_subjectsInterestFragment_to_loginFragment)
         }
     }
 

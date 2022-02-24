@@ -7,7 +7,7 @@ data class State<out T>(
     val error: Throwable?
 ) {
     companion object {
-        fun <T> success(data: T?): State<T>{
+        fun <T> success(data: T?): State<T> {
             return State(Status.SUCCESS, false, data, null)
         }
 

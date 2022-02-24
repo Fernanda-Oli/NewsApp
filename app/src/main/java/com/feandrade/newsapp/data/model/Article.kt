@@ -8,7 +8,6 @@ import java.io.Serializable
 data class Article(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val userId: Long?,
     val source: Source?,
     val author: String?,
     val title: String?,
@@ -16,5 +15,6 @@ data class Article(
     val url: String?,
     val urlToImage: String?,
     val publishedAt: String?,
-    val content: String?
+    val content: String?,
+    var userId: Long
 ): Serializable

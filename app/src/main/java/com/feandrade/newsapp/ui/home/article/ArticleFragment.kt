@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.feandrade.newsapp.data.database.repository.DBRepositoryImpl
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.model.Article
+import com.feandrade.newsapp.data.sharedpreference.SharedPreference
 import com.feandrade.newsapp.databinding.FragmentArticleBinding
 import com.feandrade.newsapp.ui.home.article.viewmodel.ArticleViewModel
 
@@ -17,6 +18,7 @@ class ArticleFragment : Fragment() {
     private lateinit var viewModel: ArticleViewModel
     private lateinit var binding: FragmentArticleBinding
     private lateinit var article: Article
+    private var userID: Long? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,15 +34,22 @@ class ArticleFragment : Fragment() {
         article = arguments?.getSerializable("article") as Article
 
         val repository = DBRepositoryImpl(NewsDB(requireContext()))
-        viewModel = ArticleViewModel.ArticleViewModelProviderFactory(repository).create(ArticleViewModel::class.java)
+        val cache = SharedPreference(requireContext())
+        viewModel = ArticleViewModel.ArticleViewModelProviderFactory(cache, repository)
+            .create(ArticleViewModel::class.java)
+
+        userID = viewModel.getUserId()
 
         binding.webView.apply {
             webViewClient = WebViewClient()
             article.url?.let { loadUrl(it) }
         }
+
         binding.fab.setOnClickListener {
+            userID?.let { article.userId = it }
             viewModel.saveArticle(article)
-//            Toast.makeText(requireContext(), "Artigo ok!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "artigo salvo", Toast.LENGTH_SHORT).show()
         }
+
     }
 }
