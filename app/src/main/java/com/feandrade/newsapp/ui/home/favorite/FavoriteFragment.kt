@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.database.NewsDB
 import com.feandrade.newsapp.data.database.repository.DBRepositoryImpl
@@ -24,27 +22,12 @@ class FavoriteFragment : Fragment() {
     private lateinit var binding: FragmentFavoriteBinding
     private lateinit var newsAdapter: NewsAdapter
     private var userID: Long? = null
-    private val itemHandler =
-        object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.START or ItemTouchHelper.END) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
 
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
-                val article = newsAdapter.getArticle(position)
-                viewModel.deleteArticle(article, position)
-            }
-        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -57,6 +40,7 @@ class FavoriteFragment : Fragment() {
         viewModel = FavoriteViewModel.FavoritesViewModelProviderFactory(cache, repository)
             .create(FavoriteViewModel::class.java)
         setObservers()
+
         userID = viewModel.getUserId()
 
         userID?.let { id ->
@@ -68,11 +52,11 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-    private fun setObservers(){
-        viewModel.removeFavorite.observe(viewLifecycleOwner){
-            if (it != FavoriteViewModel.DELETE_ERROR){
+    private fun setObservers() {
+        viewModel.removeFavorite.observe(viewLifecycleOwner) {
+            if (it != FavoriteViewModel.DELETE_ERROR) {
                 newsAdapter.removeFavorite(it)
-            } else{
+            } else {
                 Toast.makeText(requireContext(), "Failed to remove", Toast.LENGTH_LONG).show()
             }
         }
@@ -84,7 +68,11 @@ class FavoriteFragment : Fragment() {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
-            ItemTouchHelper(itemHandler).attachToRecyclerView(this)
+            DeleteHelper(requireContext(), this) {
+                val position = it.adapterPosition
+                val article = newsAdapter.getArticle(position)
+                viewModel.deleteArticle(article, position)
+            }
         }
     }
 

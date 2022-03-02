@@ -20,6 +20,12 @@ class CustomCarrousel(context: Context?, attrs: AttributeSet?) : ViewFlipper(con
         this.list = list
     }
 
+    private var itemClickedListener : ((article: Article) -> Unit)? = null
+
+    fun setClick(itemClickedListener: (article: Article) -> Unit){
+        this.itemClickedListener = itemClickedListener
+    }
+
     fun setupCarrousel(){
         val flipperList = mutableListOf<Slide>()
         list.forEach { article ->
@@ -44,6 +50,13 @@ class CustomCarrousel(context: Context?, attrs: AttributeSet?) : ViewFlipper(con
             Glide.with(context).load(flipperList[i].imageUrl).into(image)
 
             this.addView(view, i)
+
+            title.setOnClickListener {
+                itemClickedListener?.invoke(list[i])
+            }
+            image.setOnClickListener {
+                itemClickedListener?.invoke(list[i])
+            }
         }
     }
 }
