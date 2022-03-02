@@ -10,4 +10,6 @@ class DBRepositoryImpl(private val newsDB: NewsDB): DBRepository {
     override suspend fun delete(article: Article) = newsDB.newsDAO().deleteArticle(article)
 
     override fun getAllArticles(id: Long): LiveData<List<Article>> = newsDB.newsDAO().getAllArticles(id)
+
+    override fun getArticleByURL(url: String): Int = newsDB.newsDAO().getArticleByURL(url)
 }
