@@ -25,18 +25,17 @@ import kotlinx.coroutines.Dispatchers
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
     lateinit var viewModel: HomeViewModel
+    lateinit var binding: FragmentHomeBinding
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var interestNewsAdapter: InterestNewsAdapter
     private lateinit var newsList: List<Article>
-    private lateinit var interestNewsList: List<InterestNews>
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -54,24 +53,35 @@ class HomeFragment : Fragment() {
 
         observeVMEvents()
         getNews()
-        getSubjects()
         setTabLayoutClick()
+        setSwipeRefresh()
+    }
 
+    private fun setSwipeRefresh() {
         binding.swipeLayout.setOnRefreshListener {
-            getNews()
+            binding.tabLayout.apply {
+                val current = this.selectedTabPosition
+                when(this.getTabAt(current)){
+                    getText(R.string.top_headlines) -> {
+                        getNews()
+                    }
+                    getText(R.string.interests) -> {
+                        getSubjects()
+                    }
+                }
+            }
         }
-
     }
 
     private fun setTabLayoutClick() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when(tab?.text){
+                when (tab?.text) {
                     getText(R.string.top_headlines) -> {
                         setRecyclerViewForBreakingNews(newsList)
                     }
                     getText(R.string.interests) -> {
-                        setRecyclerViewForInterestNews(interestNewsList)
+                        getSubjects()
                     }
                 }
             }
@@ -108,40 +118,46 @@ class HomeFragment : Fragment() {
                 }
                 Status.LOADING -> {
                     binding.swipeLayout.isRefreshing = true
-                    //binding.progressBar.visibility = if(it.loading == true) View.VISIBLE else View.GONE
                 }
             }
         }
 
-        viewModel.interests.observe(viewLifecycleOwner){ list ->
+        viewModel.interests.observe(viewLifecycleOwner) { list ->
             when (list.status) {
                 Status.SUCCESS -> {
-                    viewModel.getListOfInterest(BuildConfig.API_KEY)
-                }
-                Status.ERROR -> {
-                    //fazer alguma coisa
-                }
-                Status.LOADING -> {
-                    //fazer alguma outra coisa
-                }
-            }
-        }
-
-        viewModel.newsListOfInterests.observe(viewLifecycleOwner){list ->
-            when (list.status) {
-                Status.SUCCESS -> {
-                    list.data?.let{
-                        interestNewsList = it
+                    if (list.data.isNullOrEmpty()) {
+                        openSubjectsFragments()
+                    } else {
+                        viewModel.getListOfInterest(BuildConfig.API_KEY)
                     }
                 }
                 Status.ERROR -> {
-                    //fazer alguma coisa
+                    binding.swipeLayout.isRefreshing = false
                 }
                 Status.LOADING -> {
-                    //fazer alguma outra coisa
+                    binding.swipeLayout.isRefreshing = true
                 }
             }
         }
+
+        viewModel.newsListOfInterests.observe(viewLifecycleOwner) { list ->
+            when (list.status) {
+                Status.SUCCESS -> {
+                    list.data?.let { setRecyclerViewForInterestNews(it) }
+                    binding.swipeLayout.isRefreshing = false
+                }
+                Status.ERROR -> {
+                    binding.swipeLayout.isRefreshing = false
+                }
+                Status.LOADING -> {
+                    binding.swipeLayout.isRefreshing = true
+                }
+            }
+        }
+    }
+
+    private fun openSubjectsFragments() {
+        findNavController().navigate(R.id.action_homeFragment_to_subjectsInterestFragment)
     }
 
     private fun setCarrousel(articles: List<Article>) {
@@ -159,7 +175,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setAdapterBreakingNews(list: List<Article>) {
-        newsAdapter = NewsAdapter(list) { article ->
+        newsAdapter = NewsAdapter(list.toMutableList()) { article ->
             findNavController().navigate(R.id.action_homeFragment_to_articleFragment,
                 Bundle().apply {
                     putSerializable("article", article)
@@ -178,7 +194,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setAdapterInterestsNewsNews(list: List<InterestNews>) {
-        interestNewsAdapter = InterestNewsAdapter(list) { article ->
+        interestNewsAdapter = InterestNewsAdapter(list.toMutableList()) { article ->
             findNavController().navigate(R.id.action_homeFragment_to_articleFragment,
                 Bundle().apply {
                     putSerializable("article", article)

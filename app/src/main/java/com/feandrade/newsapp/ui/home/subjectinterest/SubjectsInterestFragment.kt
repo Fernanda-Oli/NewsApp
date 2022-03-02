@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.ui.home.config.subjectinterest
+package com.feandrade.newsapp.ui.home.subjectinterest
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,13 +12,13 @@ import com.feandrade.newsapp.data.firebase.FirebaseDataSourceImpl
 import com.feandrade.newsapp.data.model.SubjectsModel
 import com.feandrade.newsapp.data.sharedpreference.SharedPreference
 import com.feandrade.newsapp.databinding.FragmentSubjectsInterestBinding
-import com.feandrade.newsapp.ui.home.config.subjectinterest.viewmodel.SubjectsInterestViewModel
+import com.feandrade.newsapp.ui.home.subjectinterest.viewmodel.SubjectsInterestViewModel
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.Dispatchers
 
 class SubjectsInterestFragment : Fragment() {
     private lateinit var binding: FragmentSubjectsInterestBinding
-    lateinit var viewModel : SubjectsInterestViewModel
+    lateinit var viewModel: SubjectsInterestViewModel
     lateinit var interests: SubjectsModel
 
     override fun onCreateView(
@@ -34,8 +34,9 @@ class SubjectsInterestFragment : Fragment() {
 
         val cache = SharedPreference(requireContext())
         val data = FirebaseDataSourceImpl()
-        viewModel = SubjectsInterestViewModel.SubjectsInterestViewModelFactory(Dispatchers.IO, data, cache)
-            .create(SubjectsInterestViewModel::class.java)
+        viewModel =
+            SubjectsInterestViewModel.SubjectsInterestViewModelFactory(Dispatchers.IO, data, cache)
+                .create(SubjectsInterestViewModel::class.java)
 
         observeViewModel()
         setButtonClick()
@@ -47,18 +48,19 @@ class SubjectsInterestFragment : Fragment() {
     private fun setButtonClick() {
         binding.btnNext.setOnClickListener {
             viewModel.saveInterestsList(interests)
-            findNavController().navigate(R.id.action_subjectsInterestFragment_to_loginFragment)
+            findNavController().popBackStack()
+
         }
     }
 
-    private fun observeViewModel(){
-        viewModel.subjectList.observe(viewLifecycleOwner){ data ->
-            when(data.status){
-                Status.LOADING ->{
+    private fun observeViewModel() {
+        viewModel.subjectList.observe(viewLifecycleOwner) { data ->
+            when (data.status) {
+                Status.LOADING -> {
                     binding.scrollView2.visibility = View.INVISIBLE
                     binding.progressBar.visibility = View.VISIBLE
                 }
-                Status.SUCCESS->{
+                Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
                     binding.scrollView2.visibility = View.VISIBLE
                     data.data?.let {
@@ -66,7 +68,7 @@ class SubjectsInterestFragment : Fragment() {
                         populateChipsView(it)
                     }
                 }
-                Status.ERROR->{
+                Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
                 }
             }

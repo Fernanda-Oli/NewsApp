@@ -36,7 +36,7 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/welcome_to_news_app"/>
+                    android:text="@string/interests"/>
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

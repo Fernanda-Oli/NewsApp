@@ -9,13 +9,16 @@ import com.feandrade.newsapp.R
 class PasswordViewModel : ViewModel() {
 
     private val _passwordFieldErrorResID = MutableLiveData<Int?>()
-    val passwordFieldErrorResId: LiveData<Int?> = _passwordFieldErrorResID
+    val passwordErrorResId: LiveData<Int?>
+    get() = _passwordFieldErrorResID
 
     private val _confirmPasswordFieldErrorResId = MutableLiveData<Int?>()
-    val confirmPasswordFieldErrorResId: LiveData<Int?> = _confirmPasswordFieldErrorResId
+    val confirmPasswordResId: LiveData<Int?>
+    get() = _confirmPasswordFieldErrorResId
 
     private val _validate_password = MutableLiveData<String>()
-    val validate_password: LiveData<String> = _validate_password
+    val validatePassword: LiveData<String>
+    get() = _validate_password
 
     private var isValid: Boolean = false
 

@@ -10,7 +10,6 @@ data class User(
     var userName: String,
     var password: String,
     var photo: String?
-    //pesquisar tipo foto
 ) : Serializable {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0

@@ -12,6 +12,7 @@
     <string name="emailPasswordError">E-mail or password didn\'t work</string>
     <string name="save_password">Save Password</string>
     <string name="login">Login</string>
+    <string name="password_error">Password Invalid</string>
     <string name="enter_e_mail">Enter e-mail</string>
     <string name="create_acount"><u>Create Acount</u></string>
     <string name="your_string"><u>Create Account</u></string>
@@ -42,4 +43,15 @@
     <string name="select_at_least_1_subject">Select at least 1 subject</string>
     <string name="top_headlines">Top Headlines</string>
     <string name="interests">Interests</string>
+    <string name="name">Name</string>
+    <string name="change_data">Change Data</string>
+    <string name="save_data">Save Data</string>
+    <string name="change_interests">Change Interests</string>
+    <string name="enter_last_password">Enter Last Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="profile">Profile</string>
+    <string name="email">E-mail: %s</string>
+    <string name="username">User Name: %s</string>
+    <string name="password">Password: %s</string>
+    <string name="nothing_saved_yet">Nothing saved yet ;)</string>
 </resources>

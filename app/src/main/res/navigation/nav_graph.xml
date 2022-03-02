@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_subjectsInterestFragment"
+            app:destination="@id/subjectsInterestFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -37,5 +40,20 @@
         android:name="com.feandrade.newsapp.ui.home.article.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.feandrade.newsapp.ui.home.menu.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_subjectsInterestFragment"
+            app:destination="@id/subjectsInterestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectsInterestFragment"
+        android:name="com.feandrade.newsapp.ui.home.subjectinterest.SubjectsInterestFragment"
+        android:label="fragment_subjects_interest"
+        tools:layout="@layout/fragment_subjects_interest" />
 
 </navigation>

@@ -14,7 +14,7 @@
         android:padding="10dp"
         android:text="Skype"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintBottom_toTopOf="@+id/top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,10 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:src="@drawable/ic_baseline_account_circle_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomGuide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintTop_toTopOf="@+id/top" />
 
     <ImageView
         android:id="@+id/imgCamera"
@@ -35,11 +35,11 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:src="@drawable/ic_baseline_photo_camera_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomGuide"
         app:layout_constraintEnd_toEndOf="@+id/profile_image" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/bottomGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="@+id/buttonNext" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

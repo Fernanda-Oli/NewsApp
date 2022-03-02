@@ -10,7 +10,7 @@ import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.model.User
 import com.feandrade.newsapp.databinding.FragmentPasswordBinding
 import com.feandrade.newsapp.ui.login.register.passwordfragment.viewmodel.PasswordViewModel
-import com.feandrade.newsapp.util.setError
+import com.feandrade.newsapp.util.setErrorResId
 
 class PasswordFragment : Fragment() {
     private lateinit var binding: FragmentPasswordBinding
@@ -49,13 +49,13 @@ class PasswordFragment : Fragment() {
     }
 
     private fun observeVmEvents() {
-        viewModel.passwordFieldErrorResId.observe(viewLifecycleOwner) {
-            binding.txtInputPassword.setError(requireContext(), it)
+        viewModel.confirmPasswordResId.observe(viewLifecycleOwner){
+            binding.txtInputConfirmPassword.setErrorResId(requireContext(), it)
         }
-        viewModel.confirmPasswordFieldErrorResId.observe(viewLifecycleOwner) {
-            binding.txtInputConfirmPassword.setError(requireContext(), it)
+        viewModel.passwordErrorResId.observe(viewLifecycleOwner){
+            binding.txtInputPassword.setErrorResId(requireContext(), it)
         }
-        viewModel.validate_password.observe(viewLifecycleOwner) { passwordText ->
+        viewModel.validatePassword.observe(viewLifecycleOwner) { passwordText ->
             passwordText?.let {user.password = passwordText
             sendUser(user)}
         }

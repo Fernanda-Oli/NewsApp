@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search" />
 
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+
 </menu>

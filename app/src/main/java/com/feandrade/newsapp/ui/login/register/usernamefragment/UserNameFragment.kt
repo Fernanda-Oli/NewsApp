@@ -1,16 +1,16 @@
 package com.feandrade.newsapp.ui.login.register.usernamefragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.feandrade.newsapp.R
 import com.feandrade.newsapp.data.model.User
 import com.feandrade.newsapp.databinding.FragmentUserNameBinding
 import com.feandrade.newsapp.ui.login.register.usernamefragment.viewmodel.UserNameViewModel
-import com.feandrade.newsapp.util.setError
+import com.feandrade.newsapp.util.setErrorResId
 
 class UserNameFragment : Fragment() {
     private lateinit var binding: FragmentUserNameBinding
@@ -47,13 +47,13 @@ class UserNameFragment : Fragment() {
 
     private fun observeVMEvents() {
         viewModel.userNameFieldErrorResID.observe(viewLifecycleOwner) {
-            binding.txtInputUserName.setError(requireContext(), it)
+            binding.txtInputUserName.setErrorResId(requireContext(), it)
         }
         viewModel.emailFieldErrorResID.observe(viewLifecycleOwner) {
-            binding.txtInputEmail.setError(requireContext(), it)
+            binding.txtInputEmail.setErrorResId(requireContext(), it)
         }
         viewModel.confirmEmailFieldErrorResID.observe(viewLifecycleOwner) {
-            binding.txtInputConfirmEmail.setError(requireContext(), it)
+            binding.txtInputConfirmEmail.setErrorResId(requireContext(), it)
         }
         viewModel.user.observe(viewLifecycleOwner) { validUser ->
             validUser?.let { sendUser(it) }

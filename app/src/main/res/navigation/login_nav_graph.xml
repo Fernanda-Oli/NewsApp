@@ -20,7 +20,7 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_userNameFragment2"
+            android:id="@+id/action_loginFragment_to_userNameFragment"
             app:destination="@id/userNameFragment" />
     </fragment>
     <fragment
@@ -47,16 +47,7 @@
         android:label="WelcomeFragment"
         tools:layout = "@layout/fragment_welcome">
         <action
-            android:id="@+id/action_welcomeFragment2_to_subjectsInterestFragment"
-            app:destination="@id/subjectsInterestFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/subjectsInterestFragment"
-        android:name="com.feandrade.newsapp.ui.home.config.subjectinterest.SubjectsInterestFragment"
-        android:label="fragment_subjects_interest"
-        tools:layout="@layout/fragment_subjects_interest" >
-        <action
-            android:id="@+id/action_subjectsInterestFragment_to_loginFragment"
+            android:id="@+id/action_welcomeFragment2_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

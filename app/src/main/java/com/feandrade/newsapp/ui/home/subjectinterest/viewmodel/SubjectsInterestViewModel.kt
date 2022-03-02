@@ -1,4 +1,4 @@
-package com.feandrade.newsapp.ui.home.config.subjectinterest.viewmodel
+package com.feandrade.newsapp.ui.home.subjectinterest.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -37,7 +37,6 @@ class SubjectsInterestViewModel (
 
     fun saveInterestsList(list: SubjectsModel){
         try {
-            cache.deleteData(SharedPreference.INTERESTS)
             cache.saveStringSet(SharedPreference.INTERESTS, list.subjects.toSet())
         }catch (e : Exception){
             Timber.e(e)

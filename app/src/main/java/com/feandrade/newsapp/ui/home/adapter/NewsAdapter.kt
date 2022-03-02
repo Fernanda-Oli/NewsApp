@@ -8,7 +8,7 @@ import com.feandrade.newsapp.data.model.Article
 import com.feandrade.newsapp.databinding.ItemNewsBinding
 
 class NewsAdapter(
-    private val listNews: List<Article>,
+    private val listNews: MutableList<Article>,
     private val itemClickedListener: ((article: Article) -> Unit)
 ) : RecyclerView.Adapter<NewsAdapter.AdapterViewHolder>() {
 
@@ -25,6 +25,13 @@ class NewsAdapter(
     }
 
     override fun getItemCount(): Int = listNews.size
+
+    fun getArticle(position: Int) : Article = listNews[position]
+
+    fun removeFavorite(adapterPosition: Int) {
+        listNews.removeAt(adapterPosition)
+        notifyItemRemoved(adapterPosition)
+    }
 
     class AdapterViewHolder(
         private val itemNewsBinding: ItemNewsBinding,
@@ -46,7 +53,6 @@ class NewsAdapter(
                     itemClickedListener.invoke(article)
                 }
             }
-
         }
     }
 

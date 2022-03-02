@@ -38,7 +38,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun nextFrag(){
-        findNavController().navigate(R.id.action_welcomeFragment2_to_subjectsInterestFragment)
+        findNavController().navigate(R.id.action_welcomeFragment2_to_loginFragment)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -80,7 +80,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun setAdapter(list: List<Article>) {
-        newsAdapter = NewsAdapter(list) { article ->
+        newsAdapter = NewsAdapter(list.toMutableList()) { article ->
             findNavController().navigate(
                 R.id.action_searchFragment_to_articleFragment,
                 Bundle().apply {

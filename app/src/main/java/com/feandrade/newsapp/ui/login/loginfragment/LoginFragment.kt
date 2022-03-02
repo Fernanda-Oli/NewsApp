@@ -14,7 +14,7 @@ import com.feandrade.newsapp.data.sharedpreference.SharedPreference
 import com.feandrade.newsapp.databinding.FragmentLoginBinding
 import com.feandrade.newsapp.ui.home.homeactivity.HomeActivity
 import com.feandrade.newsapp.ui.login.loginfragment.viewmodel.LoginViewModel
-import com.feandrade.newsapp.util.setError
+import com.feandrade.newsapp.util.setErrorResId
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.textCreateAccount.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_userNameFragment2)
+            findNavController().navigate(R.id.action_loginFragment_to_userNameFragment)
         }
 
         binding.checkboxSaveLogin.setOnClickListener {
@@ -83,11 +83,11 @@ class LoginFragment : Fragment() {
         }
 
         viewModel.loginFieldErrorResId.observe(viewLifecycleOwner) {
-            binding.inputLayoutUserName.setError(requireContext(), it)
+            binding.inputLayoutUserName.setErrorResId(requireContext(), it)
         }
 
         viewModel.passwordErrorResId.observe(viewLifecycleOwner) {
-            binding.inputLayoutPassword.setError(requireContext(), it)
+            binding.inputLayoutPassword.setErrorResId(requireContext(), it)
         }
 
     }
